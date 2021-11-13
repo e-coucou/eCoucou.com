@@ -69,9 +69,9 @@ $(document).ready(function() {
         showText = 'View books';
         hideText = 'Hide books';
         break;
-      case '/videos/':
-        showText = 'Video quick links';
-        hideText = 'Hide quick links';
+      case '/play':
+        showText = '< JEUX';
+        hideText = '> Jeux';
         break;
       default:
         showText = '< Liens';

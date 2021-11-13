@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+  <link rel="stylesheet" type="text/css" href="/css/prism.css">
+  <link rel="stylesheet" type="text/css" href="/css/highlight.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/css/a2z.css"> -->
+  <script src="/js/blog.js"></script>
+  <script src="/js/prism.js"></script>
+
+  <body>
+
+    {% include header.html %}
+    <main class="left-container about out">
+        <div class="logo-set">
+          <h1>{{ page.title }}</h1>
+        </div>
+        <!-- <div class="content-wrapper article"> -->
+            {{ content }}
+        <!-- </div> -->
+    </main>
+    {% include footer.html %}
+  </body>
+</html>
