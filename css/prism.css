@@ -6,7 +6,8 @@
 
  code[class*="language-"],
  pre[class*="language-"] {
-	 color: #f8f8f2;
+	 color: #fffff2;
+   /* color: #212121; */
 	 background: none;
 	 font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	 text-align: left;
@@ -36,7 +37,12 @@
 
  :not(pre) > code[class*="language-"],
  pre[class*="language-"] {
-	 background: #2b2b2b;
+	 background: #5b5b80;
+ }
+
+ :not(pre) > code[class="language-javascript"],
+ pre[class*="language-"] {
+	 background: #515151;
  }
 
  /* Inline code */

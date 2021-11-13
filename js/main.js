@@ -74,8 +74,8 @@ $(document).ready(function() {
         hideText = 'Hide quick links';
         break;
       default:
-        showText = 'Show quick links';
-        hideText = 'Hide quick links';
+        showText = '< Liens';
+        hideText = '> Liens';
     }
     var quicklinksButton = $('#quicklinks-btn');
     var quicklinksMenu = $('#quicklinks-section');

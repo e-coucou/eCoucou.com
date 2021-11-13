@@ -1,11 +1,11 @@
-var shiffmanChannelId = "UCvjgXvBlbQiydffZU7m1_aw";
-var apiKey = "AIzaSyAInyAq_CBIJ0W7p_pqJlnA7dBHvC5FG8M";
-let getPlaylistsStr = 'https://www.googleapis.com/youtube/v3/playlists?key=' + apiKey;
+// var shiffmanChannelId = "UCvjgXvBlbQiydffZU7m1_aw";
+// var apiKey = "AIzaSyAInyAq_CBIJ0W7p_pqJlnA7dBHvC5FG8M";
+// let getPlaylistsStr = 'https://www.googleapis.com/youtube/v3/playlists?key=' + apiKey;
 var RightAside = {};
 var ESCAPE_CODE = 27;
 $(document).ready(function() {
   expandNav();
-  getVideos();
+  // getVideos();
 
   var HomeRightAside = {};
   var rightActive;
@@ -59,7 +59,7 @@ $(document).ready(function() {
     }
 
     function enableQuicklinks() {
-      quicklinksButton.html('Hide quick links');
+      quicklinksButton.html('> MENU');
       $('.right-container').removeClass('out');
       $('.right-container').addClass('in');
       quicklinksButton.attr('aria-expanded', 'true');
@@ -70,7 +70,7 @@ $(document).ready(function() {
     }
 
     function disableQuicklinks() {
-      quicklinksButton.html('View quick links');
+      quicklinksButton.html('< MENU');
       $('.right-container').removeClass('in');
       $('.right-container').addClass('out');
       quicklinksButton.attr('aria-expanded', 'false');
@@ -107,66 +107,66 @@ function enableNavLinks() {
   navLinks.removeAttr('tabIndex');
 }
 
-function getVideos() {
-  let searchStr = 'https://www.googleapis.com/youtube/v3/search?key=' + apiKey;
-  $.get(searchStr, {
-      part: 'snippet',
-      channelId: shiffmanChannelId,
-      order: 'date'
-    })
-    .done(function(data) {
-      populateData(data);
-    }, 'JSON')
-    .fail(function() {
-      displayApiError();
-    });
+// function getVideos() {
+//   let searchStr = 'https://www.googleapis.com/youtube/v3/search?key=' + apiKey;
+//   $.get(searchStr, {
+//       part: 'snippet',
+//       channelId: shiffmanChannelId,
+//       order: 'date'
+//     })
+//     .done(function(data) {
+//       populateData(data);
+//     }, 'JSON')
+//     .fail(function() {
+//       displayApiError();
+//     });
+//
+// }
 
-}
+// function displayApiError() {
+//   var message = 'Please <a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">visit the Coding Train on YouTube</a> for the latest videos.'
+//   $('#apiError').append(message);
+// }
 
-function displayApiError() {
-  var message = 'Please <a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">visit the Coding Train on YouTube</a> for the latest videos.'
-  $('#apiError').append(message);
-}
-
-function populateData(data) {
-
-  var videos = data.items;
-  console.log(videos);
-
-  $.each(videos, function(index, video) {
-
-    if (index < 3) {
-      // console.log(index);
-      // console.log(video.id);
-
-      var snippet = video.snippet;
-
-      // Playlists are sneaking in here for some reason?
-      if (!video.id.playlistId) {
-
-        var block = '<div class="video-entry row">' +
-          '<div class="col-left">' +
-          '<a href="http://youtube.com/video/' + video.id.videoId + '" target="_blank"><div class="thumbnail"><img src="' + snippet.thumbnails.medium.url + '"/></div></a>' +
-          '</div>' +
-          '<div class="col-right">' +
-          '<div class="content">' +
-          '<a href="http://youtube.com/video/' + video.id.videoId + '" target="_blank"><h2>' + snippet.title + '</h2></a>' +
-          '<p>' +
-          snippet.description +
-          '</p>' +
-          '<div class="actions">' +
-          '<a href="http://youtube.com/video/' + video.id.videoId + '" target="_blank" class="body-link primary">Watch on Youtube</a>' +
-          '</div>' +
-          '</div>' +
-          '</div>' +
-          '</div>';
-
-        $('.latest-videos').append(block);
-      }
-
-    }
-
-
-  });
-
-}
+// function populateData(data) {
+//
+//   var videos = data.items;
+//   console.log(videos);
+//
+//   $.each(videos, function(index, video) {
+//
+//     if (index < 3) {
+//       // console.log(index);
+//       // console.log(video.id);
+//
+//       var snippet = video.snippet;
+//
+//       // Playlists are sneaking in here for some reason?
+//       if (!video.id.playlistId) {
+//
+//         var block = '<div class="video-entry row">' +
+//           '<div class="col-left">' +
+//           '<a href="http://youtube.com/video/' + video.id.videoId + '" target="_blank"><div class="thumbnail"><img src="' + snippet.thumbnails.medium.url + '"/></div></a>' +
+//           '</div>' +
+//           '<div class="col-right">' +
+//           '<div class="content">' +
+//           '<a href="http://youtube.com/video/' + video.id.videoId + '" target="_blank"><h2>' + snippet.title + '</h2></a>' +
+//           '<p>' +
+//           snippet.description +
+//           '</p>' +
+//           '<div class="actions">' +
+//           '<a href="http://youtube.com/video/' + video.id.videoId + '" target="_blank" class="body-link primary">Watch on Youtube</a>' +
+//           '</div>' +
+//           '</div>' +
+//           '</div>' +
+//           '</div>';
+//
+//         $('.latest-videos').append(block);
+//       }
+//
+//     }
+//
+//
+//   });
+//
+// }
