@@ -2,6 +2,9 @@
 layout: home
 title: Home
 ---
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.js" ></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
 
 <main class="left-container out home">
   <div class="content-wrapper">
@@ -13,20 +16,26 @@ title: Home
     </div>
     <div class="more-videos content-wrapper article">
         <div class="line-charm"></div>
-        <h2>Become a Patron</h2>
-        <a href="https://www.patreon.com/codingtrain?ty=h" target="_blank" class="btn primary">Become a Patron</a>
+        <h2>Derniere Animation</h2>
+        <p>Here is my sketch:</p>
+        <div id="sketch-holder">
+          <!-- Our sketch will go here! -->
+        </div>
+        <p>Pretty cool, eh?</p>
+        <!-- <a href="https://www.patreon.com/codingtrain?ty=h" target="_blank" class="btn primary">Become a Patron</a> -->
     </div>
     <div class="more-videos content-wrapper article">
         <div class="line-charm"></div>
-        <h2>See all videos on YouTube</h2>
-        <p>For more videos:</p>
-        <!-- <a href="https://www.youtube.com/thecodingtrain?sub_confirmation=1" target="_blank" class="btn primary">Subscribe to The Coding Train on YouTube.</a> -->
+        <h2>Space Invaders</h2>
+        <p>sur Scratch et que pour mon MiniP</p>
+        <a href="https://scratch.mit.edu/projects/477408735" target="_blank" class="btn primary">GO TO SCRATCH.</a>
+        <iframe src="https://scratch.mit.edu/projects/477408735/embed" allowtransparency="true" width="500" height="500" frameborder="0" scrolling="no" allowfullscreen></iframe>
     </div>
   </div>
 </main>
 <button class="mobile-quick-links" aria-controls="quicklinks-section-home" aria-haspopup="true" id="quicklinks-btn-home"></button>
 <aside class="right-container out" id="quicklinks-section-home">
-  <div class="feature livestream">
+  <!-- <div class="feature livestream">
     <div class="content">
       <h3>Live stream updates</h3>
       <p>Sign up for live stream notifications via e-mail</p>
@@ -37,7 +46,7 @@ title: Home
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="feature youtube">
     <div class="content">
       <h3 class="ct">The coding train</h3>
@@ -48,20 +57,21 @@ title: Home
   </div>
   <div class="feature lp">
     <div class="content">
-      <h3>Learning Processing</h3>
-      <p>Creative Coding for the Total Beginner</p>
-      <!-- <a href="https://www.amazon.com/Learning-Processing-Second-Edition-Programming/dp/0123944430/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=learniproces-20&linkId=757eff7b49e61c381b17a43c7dec3eee" class="primary">Get the <span class="visually-hidden">Learning Processing </span>book.</a> -->
+      <h3>Rugby World Cup</h3>
+      <p>Classement IRB depuis 2003</p>
+      <a href="https://rugby.e-coucou.com" class="primary">Rugby <span class="visually-hidden">Rugby World Cup</span>GO.</a>
     </div>
     <!-- <img class="book" src="images/book-lp.png" alt="Learn Processing book" width="131px"/> -->
   </div>
   <div class="feature noc">
     <div class="content">
-      <h3>Nature of code</h3>
-      <p>Simulations of Natural Systems</p>
-      <a href="https://www.amazon.com/gp/product/0985930802/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0985930802&linkCode=as2&tag=natureofcode-20" target="_blank" class="primary">Get the <span class="visually-hidden">Nature of Code </span>book.</a>
+      <h3>La PAVLOVA</h3>
+      <p>La meilleure recette de Pavlova</p>
+      <a href="https://observablehq.com/@e-coucou/pavlova-font-size-2-span-style-color-darkblue-by-ecoucou-spa?collection=@e-coucou/recettes-culinaires" target="_blank" class="primary">Pavlova <span class="visually-hidden">Recette </span>GO.</a>
     </div>
-    <!-- <img class="book" src="images/book-noc.png" alt="The Nature of Code book" width="131px"/> -->
+    <img class="rainbow" src="images/pavlova.jpg" alt="La Pavlova" width="201px"/>
   </div>
 </aside>
 
 <script src="/js/home.js"></script>
+<script src="/js/sketch.js"></script>
