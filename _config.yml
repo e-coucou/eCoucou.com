@@ -23,7 +23,7 @@ email: eric@e-coucou.com
 description: >- # this means to ignore newlines until "baseurl:"
   Ce site toutes les créations allant des applications web, des sites web et des tutoriels pour que mon Poussin puisse s'informer.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://eCoucou.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://home.e-coucou.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: EricP_
 github_username:  eCoucou
 
