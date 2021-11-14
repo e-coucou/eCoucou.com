@@ -17,21 +17,23 @@ title: Home
     <div class="more-videos content-wrapper article">
         <div class="line-charm"></div>
         <h2>Derniere Animation</h2>
-        <p>Here is my sketch:</p>
-        <div id="sketch-holder">
-          <!-- Our sketch will go here! -->
-        </div>
-        <p>Pretty cool, eh?</p>
-        <!-- <a href="https://www.patreon.com/codingtrain?ty=h" target="_blank" class="btn primary">Become a Patron</a> -->
+        <div id="sketch-holder"></div>
     </div>
-    <div>
-     <!-- class="more-videos content-wrapper article"> -->
-        <div class="line-charm"></div>
-        <h2>Space Invaders</h2>
-        <p>sur Scratch et que pour mon MiniP</p>
-        <a href="https://scratch.mit.edu/projects/477408735" target="_blank" class="btn primary">GO TO SCRATCH.</a>
-        <iframe src="https://scratch.mit.edu/projects/477408735/embed" allowtransparency="true" width="500" height="500" frameborder="0" scrolling="no" allowfullscreen></iframe>
-    </div>
+  </div>
+  <div class="content-wrapper">
+    <span class="line-charm"></span>
+    {% for p in site.categories %}
+    <!-- <h3>{{p[0]}}</h3> -->
+    {% if p[0] == 'top' %}
+    <ul>
+      {% for post in p[1] %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+      {{p.title}} <br>
+      {{p.categories}}
+    </ul>
+    {% endif %}
+    {% endfor %}
   </div>
 </main>
 
