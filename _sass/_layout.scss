@@ -547,7 +547,7 @@ a.body-link {
             color: $red;
         }
     }
-    &.youtube {
+    &.code {
         background: $blue url('../images/highlight.png') no-repeat;
         background-position: center right;
         color: $white;
@@ -727,6 +727,9 @@ input:focus {
     &.game {
       background: $lightpurple;
     }
+    &.code {
+      background: $lightblue;
+    }
     h3 {
         font-size: 12px;
         color: rgba(0,0,0,0.8);
@@ -774,6 +777,18 @@ input:focus {
           &:hover, &:focus {
               background: $white;
               color: $purple;
+          }
+      }
+    }
+    .code {
+      margin-bottom: 15px;
+      a {
+          @include a-base;
+          background: $blue;
+          color: #EAECFF;
+          &:hover, &:focus {
+              background: $white;
+              color: $blue;
           }
       }
     }
