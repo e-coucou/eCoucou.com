@@ -61,7 +61,7 @@ $(document).ready(function() {
   RightAside.App = (function() {
     var showText, hideText;
     switch (window.location.pathname) {
-      case '/learning/':
+      case '/apprendre/':
         showText = 'Show courses links';
         hideText = 'Hide courses links';
         break;
@@ -74,8 +74,8 @@ $(document).ready(function() {
         hideText = '> Jeux';
         break;
       default:
-        showText = '< Liens';
-        hideText = '> Liens';
+        showText = '< Menu';
+        hideText = '> Menu';
     }
     var quicklinksButton = $('#quicklinks-btn');
     var quicklinksMenu = $('#quicklinks-section');
