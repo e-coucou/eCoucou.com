@@ -14,6 +14,9 @@ function draw() {
   }
 
   for (p of particules) {
+    if (p.isColonne()) {
+      p.applyForce(createVector(0, random(-0.02, -0.01)));
+    }
     p.update();
     p.show();
   }
