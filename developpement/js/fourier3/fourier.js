@@ -69,7 +69,8 @@ class Complex {
 //-------------
 // Fast Fourier Transform ...
 // v Reel
-function fft(x) {
+function fft(X) {
+  const x = [...X];
   const N = x.length;
   if (N <= 1) {
     return x;
@@ -104,6 +105,73 @@ function fft(x) {
   }
   return x;
 }
+//----------
+// inverse FFT
+function inv_fft(x)
+{
+  const N = x.length;
+  const iN = 1 / N;
+ 
+  //conjugate if imaginary part is not 0
+
+  for(let i = 0 ; i < N; ++i)
+    if(x[i] instanceof Complex)
+      x[i].im = -x[i].im;
+ 
+  //apply fourier transform
+  x = fft(x);
+console.log(x[1]); 
+  for(let i = 0 ; i < N; ++i)
+  {
+    //conjugate again
+    x[i].im = -x[i].im;
+    //scale
+    x[i].re *= iN;
+    x[i].im *= iN;
+  }
+  return x;
+}
+//----------
+// fft test
+function fft_ep(a) {
+    let A = [];
+    const N = a.length; 
+    A.length = N;
+    bit_reverse_copy(a, A);
+    for (let s = 1 ; s< Math.log2(N); s++ ) {
+        let m = 2 * s;
+        let wm = Math.exp(-2*Math.PI/m);
+        for (let k = 0; k< N; k +=m) {
+            let w = 1;
+            for (let j = 0; j < m/2; j++) {
+                let t = w * A[k + j + m/2];
+                let u = A[k + j];
+                A[k + j] = u + t;
+                A[k + j + m/2] = u - t;
+                w = w * wm;
+            }
+        }
+    }   
+    return A
+}
+
+function bit_reverse_copy(a,A) {
+
+    const N = a.length;
+    for (let k = 0; k< N; k++) {
+        A[rev(k,N)] = a[k];
+    }
+}
+
+function rev(k,N) {
+  const n = Math.log2(N);
+  let v = 0;
+  for (let i = 0; i<n; i++) {
+    v += ((k>>i) & 1) << (n-i-1);
+  }
+  return v;
+}
+
 
 //----------
 // Discret Fourier Transform Complex

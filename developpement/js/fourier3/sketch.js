@@ -1,6 +1,6 @@
 let canvas;
 
-let n = 2048;
+let n = 16;
 let path = [];
 let fourierY, fourierFFT;
 let time = 0;
@@ -17,7 +17,7 @@ function setup() {
     // signal[i] = random(-100, 100);
     // signal[i] = new Complex(i, random(-100, 100));
   }
-  // fourierY = dft(signal);
+  fourierY = dft(signal);
   fourierFFT = fft(signalC);
 
   for (let k=0;k<fourierFFT.length;k++) {
