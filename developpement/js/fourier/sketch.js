@@ -2,21 +2,24 @@ let canvas;
 
 let n = 8;
 let angle = 0;
-let r = 100;
+let r = 60;
 let path = [];
 
+let w;
+
 function setup() {
-  canvas = createCanvas(800, 400);
+  w = windowWidth * 0.8;
+  canvas = createCanvas(w, 300);
   canvas.parent('sketch-fourier');
 
 }
 
 function draw() {
   background(0);
-  n = round(frameCount / 500);
+  n = round(frameCount / 100);
   let xi = 0,
     yi = 0;
-  translate(200, height / 2);
+  translate(150, height / 2);
   for (let i = 0; i < n; i++) {
     let t = 2 * i + 1;
     ri = r * (4 / t / PI);

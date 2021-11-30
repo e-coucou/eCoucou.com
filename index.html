@@ -22,9 +22,10 @@ title: Home
   </div>
   <div class="content-wrapper">
     <span class="line-charm"></span>
+    <h2>Les POST</h2>
     {% for p in site.categories %}
     <!-- <h3>{{p[0]}}</h3> -->
-    {% if p[0] == 'top' %}
+    {% if p[0] == 'ecoucou' %}
     <ul>
       {% for post in p[1] %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>

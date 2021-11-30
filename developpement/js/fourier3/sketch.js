@@ -1,6 +1,6 @@
 let canvas;
 
-let n = 16;
+let n = 1024;
 let path = [];
 let fourierY, fourierFFT;
 let time = 0;
