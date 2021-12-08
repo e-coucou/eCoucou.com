@@ -13,7 +13,7 @@ function preload() {}
 
 function setup() {
   // createCanvas(windowWidth,windowHeight);
-  canvas = createCanvas(windowWidth / 2, 200);
+  canvas = createCanvas(windowWidth *0.5, 200);
   canvas.parent('sketch-holder');
   console.log("%c (ツ) # eCoucou " + eC.version + " # ", "background: #f00; color: #fff");
   for (let i = 0; i < 3; i++) {

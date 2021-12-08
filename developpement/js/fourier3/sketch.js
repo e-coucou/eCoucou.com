@@ -8,7 +8,7 @@ let time = 0;
 let signal = [], signalC = [];
 
 function setup() {
-  canvas = createCanvas(800, 400);
+  canvas = createCanvas(windowWidth*0.67, 400);
   canvas.parent('sketch-fourier');
 
   for (let i = 0; i < n; i++) {

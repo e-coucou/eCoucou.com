@@ -8,7 +8,7 @@ let path = [];
 let w;
 
 function setup() {
-  w = windowWidth * 0.8;
+  w = windowWidth * 0.67;
   canvas = createCanvas(w, 300);
   canvas.parent('sketch-fourier');
 

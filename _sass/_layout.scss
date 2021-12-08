@@ -37,7 +37,7 @@ html {
 }
 .left-container {
     position: relative;
-    width: 65%;
+    width: 95%;
     padding: 100px 130px 200px;
     margin-left: 0;
     opacity: 1;
@@ -49,8 +49,12 @@ html {
         padding-left: 200px;
         font-size: 0.8em;
     }
-    &.about,
     &.blog,
+    &.about
+    {
+        width:90%;
+    }
+    &.home,
     &.teaching,
     &.video-page {
         width: 70%;
