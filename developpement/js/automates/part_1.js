@@ -38,12 +38,12 @@ var s1 = function (sketch) {
 var s2 = function (sketch) {
     let CAs = [];
     sketch.setup = function () {
-        canvas2 = sketch.createCanvas(600, 26 * 32);
+        canvas2 = sketch.createCanvas(16 * 60, 16 * 32);
         canvas2.parent('sketch-Atomate_11');
         sketch.background(51);
-        for (let i = 0; i < 10; i++) {
-            for (let j = 0; j < 26; j++) {
-                let ca = new Automate(i + j * 10, 60, 30, 1, sketch.createVector(2 + 60 * i, 31 * j), sketch);
+        for (let i = 0; i < 16; i++) {
+            for (let j = 0; j < 16; j++) {
+                let ca = new Automate(i + j * 16, 60, 32, 1, sketch.createVector(60 * i, 32 * j), sketch);
                 ca.init();
                 CAs.push(ca);
             }
