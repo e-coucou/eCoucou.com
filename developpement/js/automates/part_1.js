@@ -1,7 +1,5 @@
 let canvas, canvas2;
 let code = 0;
-// let grille = [];
-// let rows = [];
 let pas = 3;
 let l, c;
 let cpt = 0;
@@ -11,7 +9,7 @@ let ca;
 var s1 = function (sketch) {
     sketch.setup = function () {
         // canvas = sketch.createCanvas(600, 300);
-        canvas = sketch.createCanvas(sketch.windowWidth, 400);
+        canvas = sketch.createCanvas(sketch.windowWidth * 0.7, 400);
         canvas.parent('sketch-Atomate_1');
         codeP = sketch.createP('divers');
         codeP.parent('code');
@@ -21,35 +19,20 @@ var s1 = function (sketch) {
         ca.init();
         codeP.html(code);
         sketch.background(51);
-        // grille = initGrid();
-        // rows.push(grille);
     }
     sketch.draw = function () {
         if (cpt < l) {
             ca.update();
-            // grille = nextGen(grille);
-            // rows.push(grille);
             cpt++;
         } else {
-            // rows = [];
             code = (code + 1) % 256;
             ca.code = code;
             ca.initRandom();
             codeP.html(code);
-            // grille = [];
-            // grille = initGrid();
             cpt = 0;
             sketch.background(51);
         }
         ca.show();
-        // for (let j = 0; j < rows.length; j++) {
-        //     for (let i = 0; i < c; i++) {
-        //         const x = i * pas;
-        //         const y = j * pas;
-        //         sketch.fill(255 * rows[j][i]);
-        //         sketch.square(x, y, pas);
-        //     }
-        // }
     }
 };
 var s2 = function (sketch) {
@@ -79,31 +62,3 @@ var s2 = function (sketch) {
 };
 new p5(s1);
 new p5(s2);
-
-// function initGrid() {
-//     let grid = [];
-//     for (let i = 0; i < c; i++) {
-//         grid[i] = 0;
-//     }
-//     grid[Math.floor(c / 2)] = 1;
-//     codeP.html(code);
-//     return grid;
-// }
-
-
-// function getRule(n, grid) {
-//     let val = 0;
-//     val += grid[n - 1] * 4;
-//     val += grid[n] * 2;
-//     val += grid[n + 1];
-//     val = Math.pow(2, val) & code;
-//     return (val > 0 ? 1 : 0);
-// }
-
-// function nextGen(grid) {
-//     let next = [];
-//     for (let i = 0; i < c; i++) {
-//         next[i] = getRule(i, grid);
-//     }
-//     return next;
-// }
