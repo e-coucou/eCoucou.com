@@ -27,9 +27,11 @@ class Automate {
     }
     getRule(n) {
         let val = 0;
-        val += this.grille[n - 1] * 4;
-        val += this.grille[n] * 2;
-        val += this.grille[n + 1];
+        if (n > 0 && n < this.c - 1) {
+            val += this.grille[n - 1] * 4;
+            val += this.grille[n] * 2;
+            val += this.grille[n + 1];
+        }
         val = Math.pow(2, val) & this.code;
         return (val > 0 ? 1 : 0);
     }
