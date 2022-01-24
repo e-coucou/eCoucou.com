@@ -4,7 +4,7 @@ let grille;
 function setup() {
     canvas = createCanvas(800, 400);
     canvas.parent("sketch-id");
-    grille = new Grille(80, 80, 5);
+    grille = new Grille(40, 40, 10);
 }
 
 function draw() {
