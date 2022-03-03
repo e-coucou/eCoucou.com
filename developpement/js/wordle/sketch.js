@@ -21,18 +21,18 @@ function preload() {
 function aff_alph() {
     w_c = w / 2;
     w_h = w_c * 1.5;
-    textSize(w_c * 0.66);
+    textSize(w_c * 0.4);
     for (i in alpha) {
         // console.log(alpha[i]);
         c = alpha[i];
         fill(c.t || 45);
         stroke(90);
         strokeWeight(1);
-        rect(c.c * w_c, c.l * w_h + 6.4 * w, w_c, w_h, 6);
+        rect(c.c * w_c, c.l * w_h + 6.4 * w, w_c * c.w, w_h, 6);
         fill(255);
         noStroke();
         textAlign(CENTER, CENTER);
-        text(c.n, (c.c + 1 / 2) * w_c, c.l * (w_h + 5) + w_h / 2 + 6.4 * w);
+        text(c.n, (c.c + c.w / 2) * w_c, c.l * (w_h) + w_h / 2 + 6.4 * w);
     }
 }
 
