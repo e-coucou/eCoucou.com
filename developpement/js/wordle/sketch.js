@@ -73,6 +73,10 @@ function keyPressed() {
     check_key(key);
 }
 
+function touchStarted() {
+    console.log('touch');
+}
+
 function mousePressed() {
     let w_c = w / 2;
     let w_h = w_c * 1.5;
