@@ -57,7 +57,6 @@ function check_key(key) {
     } else if (key == 'Enter') {
         if (nb == 5) check_propal();
     }
-
 }
 
 function keyTyped() {
@@ -69,6 +68,7 @@ function keyPressed() {
 }
 
 function touchStarted() {
+    keyPressed();
     console.log('touch');
 }
 
