@@ -60,6 +60,10 @@ function check_key(key) {
 
 }
 
+function keyTyped() {
+    console.log(key);
+}
+
 function keyPressed() {
     check_key(key);
 }
