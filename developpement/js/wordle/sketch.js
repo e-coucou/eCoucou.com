@@ -67,13 +67,7 @@ function keyPressed() {
     check_key(key);
 }
 
-function touchStarted() {
-    mousePressed();
-    // console.log('touch');
-    return false;
-}
-
-function mousePressed() {
+function check_mouse() {
     let w_c = w / 2;
     let w_h = w_c * 1.5;
     let h = 6.4 * w;
@@ -84,6 +78,16 @@ function mousePressed() {
         c = floor(mouseX / w_c);
         check_key(clavier[l][c]);
     }
+}
+
+function touchStarted() {
+    check_mouse();
+    // console.log('touch');
+    return false;
+}
+
+function mousePressed() {
+    check_mouse();
 }
 
 function algo_check() {
