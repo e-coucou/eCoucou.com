@@ -68,8 +68,9 @@ function keyPressed() {
 }
 
 function touchStarted() {
+    mousePressed();
     // console.log('touch');
-    return false
+    return false;
 }
 
 function mousePressed() {
