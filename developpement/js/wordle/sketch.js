@@ -60,7 +60,7 @@ function check_key(key) {
 }
 
 function keyTyped() {
-    console.log(key);
+    check_key(key);
 }
 
 function keyPressed() {
@@ -68,8 +68,8 @@ function keyPressed() {
 }
 
 function touchStarted() {
-    keyPressed();
-    console.log('touch');
+    // console.log('touch');
+    return false
 }
 
 function mousePressed() {
