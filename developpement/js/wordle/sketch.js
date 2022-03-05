@@ -27,6 +27,7 @@ function aff_alph() {
     w_c = w / 2;
     w_h = w_c * 1.5;
     textSize(w_c * 0.4);
+    textStyle(NORMAL);
     for (i in alpha) {
         // console.log(alpha[i]);
         c = alpha[i];
@@ -40,16 +41,6 @@ function aff_alph() {
         text(c.n, (c.c + c.w / 2) * w_c, c.l * (w_h) + w_h / 2 + 6.4 * w);
     }
 }
-
-// function keyTyped() {
-//     console.log(key);
-//     if (((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) && (key != 'Enter')) {
-//         if (nb < 5) {
-//             propal[nb] = (key.toUpperCase());
-//             nb++;
-//         }
-//     }
-// }
 
 function check_key(key) {
     if (((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) && (key != 'Enter') && (key != 'Backspace')) {
@@ -90,7 +81,7 @@ function mousePressed() {
     }
 }
 
-function new_check() {
+function algo_check() {
     succes = 0;
     ret = [];
     let X = {},
@@ -144,43 +135,7 @@ function new_check() {
 }
 
 function check_propal() {
-    result = new_check();
-    console.log('result new', result)
-    // result = [];
-    // succes = 0;
-    // for (i = 0; i < 5; i++) {
-    //     found = false;
-    //     if (propal[i] == mot_arr[i]) {
-    //         result[i] = color(50, 205, 50);
-    //         alpha[propal[i]]['t'] = result[i];
-    //         succes++;
-    //         found = true;
-    //     } else {
-    //         result[i] = color(75, 75, 75);
-    //         for (j = 0; j < 5; j++) {
-    //             if (i != j && propal[i] == mot_arr[j]) {
-    //                 result[i] = color(255, 215, 0);
-    //                 if (!alpha[propal[i]]['t']) {
-    //                     alpha[propal[i]]['t'] = color(255, 215, 0);
-    //                 }
-    //                 found = true;
-    //             }
-    //         }
-    //     }
-    //     if (!found) {
-    //         alpha[propal[i]]['t'] = color(90, 90, 90);
-    //     }
-    // }
-    // // check double lettre
-    // for (i = 0; i < 5; i++) {
-    //     for (j = i + 1; j < 5; j++) {
-    //         if (propal[i] == propal[j]) {
-    //             console.log('Doublon', propal[i]);
-    //             // if ()
-    //         }
-    //     }
-    // }
-    // console.log('result original', result);
+    result = algo_check();
     ligne.push({
         p: propal,
         r: result,
@@ -192,8 +147,15 @@ function check_propal() {
     nb = 0;
 }
 
+function copyright() {
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(8);
+    text('e-coucou 2022', width - 30, height - 5);
+}
+
 function setup() {
-    canvas = createCanvas(400, 700);
+    canvas = createCanvas(400, 705);
     w = width / 5;
 
     canvas.parent("sketch-id");
@@ -210,11 +172,16 @@ function setup() {
 
 function draw() {
     background(0)
-    textSize(w * 0.5);
+    textSize(w * 0.35);
+    textStyle(BOLD);
     for (l = 0; l < 6; l++) {
         for (c = 0; c < 5; c++) {
             stroke(90);
-            strokeWeight(3);
+            if (l == nbL) {
+                strokeWeight(3);
+            } else {
+                strokeWeight(1);
+            }
             fill(0);
             square(3 + c * (w), 5 + l * (w + 5), w - 7, 10);
         }
@@ -242,7 +209,28 @@ function draw() {
         fill(color(50, 205, 50));
         rect(w * 0.5, height - 1.8 * w, 4 * w, 1.3 * w, 20);
         fill(255);
-        text('* GAGNE *', width / 2, height - w);
+        let msg = 'Bravo';
+        switch (nbL) {
+            case 1:
+                msg = 'luky Guy!';
+                break;
+            case 2:
+                msg = 'Incroyable !';
+                break;
+            case 3:
+                msg = 'Impressionant';
+                break;
+            case 4:
+                msg = 'Bravo !';
+                break;
+            case 5:
+                msg = 'Pas Mal ...';
+                break;
+            case 6:
+                msg = 'Ouf !';
+                break;
+        }
+        text(msg, width / 2, height - w);
         noLoop();
     } else if (nbL == 6) {
         fill(color(250, 50, 50));
@@ -251,4 +239,5 @@ function draw() {
         text(mot, width / 2, height - w);
         noLoop();
     } else aff_alph();
+    copyright();
 }
