@@ -197,7 +197,7 @@ function setup() {
         liste_mots.push(fichier[l]);
     }
     mot = random(liste_mots);
-    mot = 'DEBIT';
+    // mot = 'DEBIT';
     for (l of mot) {
         mot_arr.push(l);
     }
