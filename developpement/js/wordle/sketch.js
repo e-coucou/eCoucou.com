@@ -60,7 +60,7 @@ function check_key(key) {
 }
 
 function keyTyped() {
-    check_key(key);
+    // check_key(key);
 }
 
 function keyPressed() {
