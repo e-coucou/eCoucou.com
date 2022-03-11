@@ -166,6 +166,7 @@ function copyright() {
     textAlign(CENTER, CENTER);
     textSize(8);
     text('e-coucou 2022', width - 30, height - 5);
+    text('by MiniP', 5, height - 5);
 }
 
 function setup() {
@@ -226,22 +227,22 @@ function draw() {
         let msg = 'Bravo';
         switch (nbL) {
             case 1:
-                msg = 'luky Guy!';
+                msg = 'Coup de Bol!';
                 break;
             case 2:
-                msg = 'Incroyable !';
+                msg = 'Excellent !';
                 break;
             case 3:
-                msg = 'Impressionant';
-                break;
-            case 4:
                 msg = 'Bravo !';
                 break;
-            case 5:
+            case 4:
                 msg = 'Pas Mal ...';
                 break;
+            case 5:
+                msg = 'Bof !';
+                break;
             case 6:
-                msg = 'Ouf !';
+                msg = 'Gros Nul !';
                 break;
         }
         text(msg, width / 2, height - w);
