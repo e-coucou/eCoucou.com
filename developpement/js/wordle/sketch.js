@@ -42,8 +42,9 @@ function aff_alph() {
     }
 }
 
-function check_key(key) {
-    if (((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) && (key != 'Enter') && (key != 'Backspace')) {
+function check_key(key, keyCode) {
+    // console.log(key, keyCode);
+    if (keyCode >= 65 && keyCode <= 90) {
         if (nb < 5) {
             propal[nb] = (key.toUpperCase());
             nb++;
@@ -64,7 +65,7 @@ function keyTyped() {
 }
 
 function keyPressed() {
-    check_key(key);
+    check_key(key, keyCode);
 }
 
 function check_mouse() {
@@ -76,7 +77,11 @@ function check_mouse() {
     if (mouseY > h && mouseY < (h + 3 * w_h)) {
         l = floor((mouseY - h) / w_h);
         c = floor(mouseX / w_c);
-        check_key(clavier[l][c]);
+        key = clavier[l][c];
+        keyCode = clavier[l][c].charCodeAt();
+        if (key == 'Enter') keyCode = 13;
+        if (key == 'Backspace') keyCode = 8;
+        check_key(key, keyCode);
     }
 }
 
