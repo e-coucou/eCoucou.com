@@ -88,7 +88,7 @@ function check_mouse() {
 function touchStarted() {
     check_mouse();
     // console.log('touch');
-    return false;
+    // return false;
 }
 
 function mousePressed() {
