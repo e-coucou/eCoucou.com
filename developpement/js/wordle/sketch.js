@@ -10,6 +10,8 @@ let nb = 0,
 let w;
 let succes = 0;
 let col = 0;
+let in_out = true;
+let vert, gold;
 
 let alpha;
 let clavier = [
@@ -44,6 +46,7 @@ function aff_alph() {
 
 function check_key(key, keyCode) {
     // console.log(key, keyCode);
+    in_out = true;
     if (keyCode >= 65 && keyCode <= 90) {
         if (nb < 5) {
             propal[nb] = (key.toUpperCase());
@@ -118,13 +121,13 @@ function algo_check() {
         for (i of X[x]) {
             if (Y[x]) {
                 if (Y[x].length >= nkC + nOk) {
-                    ret[i] = color(255, 215, 0);
+                    ret[i] = gold; //color(255, 215, 0);
                     if (!alpha[propal[i]]['t']) {
-                        alpha[propal[i]]['t'] = color(255, 215, 0);
+                        alpha[propal[i]]['t'] = gold; //color(255, 215, 0);
                     }
                     for (j of Y[x]) {
                         if (i == j) {
-                            ret[i] = color(50, 205, 50);
+                            ret[i] = vert;
                             alpha[propal[i]]['t'] = ret[i];
                             succes++;
                         }
@@ -132,7 +135,7 @@ function algo_check() {
                 } else {
                     for (j of Y[x]) {
                         if (i == j) {
-                            ret[i] = color(50, 205, 50);
+                            ret[i] = vert;
                             succes++;
                             nOk++;
                         }
@@ -149,6 +152,17 @@ function algo_check() {
 }
 
 function check_propal() {
+    let propal_car = '';
+    for (c of propal) {
+        propal_car += c;
+    }
+    in_out = false;
+    for (t in fichier) {
+        if (fichier[t] == propal_car) {
+            in_out = true;
+        }
+    }
+    if (!in_out) return in_out;
     result = algo_check();
     ligne.push({
         p: propal,
@@ -159,6 +173,7 @@ function check_propal() {
     propal = [];
     nbL++;
     nb = 0;
+    return in_out;
 }
 
 function copyright() {
@@ -174,6 +189,11 @@ function setup() {
     w = width / 5;
 
     canvas.parent("sketch-id");
+
+    // vert = color(50, 205, 50);
+    vert = color(34, 139, 34);
+    gold = color(225, 185, 0);
+
     for (l in fichier) {
         liste_mots.push(fichier[l]);
     }
@@ -190,22 +210,31 @@ function draw() {
     textSize(w * 0.35);
     textStyle(BOLD);
     for (l = 0; l < 6; l++) {
-        for (c = 0; c < 5; c++) {
-            stroke(90);
-            if (l == nbL) {
+        stroke(90);
+        if (l === nbL) { // la ligne en cours
+            if (in_out) {
                 strokeWeight(3);
+                stroke(90);
+                fill(0);
             } else {
-                strokeWeight(1);
+                strokeWeight(10);
+                stroke(color(180, 20, 20));
             }
+        } else {
+            strokeWeight(1);
             fill(0);
+        }
+        for (c = 0; c < 5; c++) {
             square(3 + c * (w), 5 + l * (w + 5), w - 7, 10);
         }
     }
+    // la ligne validée ...
     for (k of ligne) {
+        let def_color = color(90, 90, 90);
         for (i = 0; i < 5; i++) {
             stroke(0);
             strokeWeight(3);
-            fill(k.r[i] || 90);
+            fill(k.r[i] || def_color);
             square(3 + i * w, k.n * (w + 5) + 5, w - 7, 10);
             fill(255);
             noStroke();
@@ -214,14 +243,19 @@ function draw() {
         }
     }
     for (i = 0; i < nb; i++) {
-        fill(45);
+        if (in_out) {
+            fill(45);
+        } else {
+            fill(color(100, 20, 20));
+        }
+
         square(3 + i * w, nbL * (w + 5) + 5, w - 7, 10);
         fill(255);
         textAlign(CENTER, CENTER);
         text(propal[i], (i + 1 / 2) * w, nbL * (w + 5) + w / 2 + 8);
     }
     if (succes == 5) {
-        fill(color(50, 205, 50));
+        fill(vert);
         rect(w * 0.5, height - 1.8 * w, 4 * w, 1.3 * w, 20);
         fill(255);
         let msg = 'Bravo';
@@ -248,7 +282,7 @@ function draw() {
         text(msg, width / 2, height - w);
         noLoop();
     } else if (nbL == 6) {
-        fill(color(250, 50, 50));
+        fill(color(200, 50, 50));
         rect(w * 0.5, height - 1.8 * w, 4 * w, 1.3 * w, 20);
         fill(255);
         text(mot, width / 2, height - w);
