@@ -267,10 +267,10 @@ function draw() {
                 msg = 'Excellent !';
                 break;
             case 3:
-                msg = 'Bravo !';
+                msg = 'Impressionant !';
                 break;
             case 4:
-                msg = 'Pas Mal ...';
+                msg = 'Bravo ...';
                 break;
             case 5:
                 msg = 'Bof !';
