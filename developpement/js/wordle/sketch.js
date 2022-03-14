@@ -60,6 +60,8 @@ function check_key(key, keyCode) {
         }
     } else if (key == 'Enter') {
         if (nb == 5) check_propal();
+    } else if (key == 'Control') {
+        console.log(mot);
     }
 }
 
